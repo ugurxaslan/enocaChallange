@@ -30,7 +30,7 @@ bir kullanıcı oluşturur
 
 ### /products (POST)
 
-bir ürün oluştururu
+bir ürün oluşturur
 
 ### /products/{productId}(PUT)
 
