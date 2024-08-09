@@ -1,5 +1,7 @@
 # Enoca Java Challenge
 
+proje eksik olarak tamamlanmıştır.
+
 ## lütfen kendi db bilgilerinizi güncelleyiniz
 
 ### /carts/{customerId}/addProduct
