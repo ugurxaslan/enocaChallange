@@ -36,7 +36,7 @@ Bilgileri verilen ürünü sistemden siler fakat sepette veya siparişte bu ür�
 
 #### `getCart` [/carts/{customerId}/getCart]
 
-Kullanıcı id si verilen kişinin sepeini getirir.
+Kullanıcı id si verilen kişinin sepetini getirir.
 
 #### `updateCart` [/carts/{customerId}/updateCart]
 
