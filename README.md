@@ -1,6 +1,6 @@
 # Enoca Java Challange
 
-Projeyi **7 ağustos çarşamba** günü aldım. **9 ağustos cuma** günü projeyi eksik bir şekilde teslim ettim. Haftasonu boş kalmamak amacıyla eksiklerimi tamamladım ve **11 ağustos pazar** günü tamamen bitirdim. Proje üzerinde **4 gün** çalıştım.
+Projeyi **7 ağustos çarşamba** günü aldım.  Okulun açılma tarihinin yaklaşması ve staj yapabilme süresinin daralması, staja bir an önce başlayabilme nedeniyle projeyi **9 ağustos cuma** günü eksik bir şekilde teslim ettim. Haftasonu boş kalmamak amacıyla eksiklerimi tamamladım ve **11 ağustos pazar** günü tamamen bitirdim. Proje üzerinde **4 gün** çalıştım.
 
 ### Çalıştırma
 
