@@ -1,7 +1,5 @@
 # Enoca Java Challange
 
-### Proje süreci
-
 Projeyi **7 ağustos çarşamba** günü aldım. **9 ağustos cuma** günü projeyi eksik bir şekilde teslim ettim. Haftasonu boş kalmamak amacıyla eksiklerimi tamamladım ve **11 ağustos pazar** günü tamamen bitirdim. Proje üzerinde **4 gün** çalıştım.
 
 ### Çalıştırma
@@ -27,8 +25,6 @@ Bilgileri verilen ürünü sisteme dahil eder.
 #### `getProduct` [/products/{productId}getProduct]
 
 Bilgileri verilen ürünü sistemden getirir.
-
-#### `updateProduct` [/products/{productId}updateProduct]
 
 Ürün bilgilerini güncellemek için kullanılır.
 
