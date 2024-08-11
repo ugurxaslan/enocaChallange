@@ -1,43 +1,73 @@
-# Enoca Java Challenge
+# Enoca Java Challange
 
-## lütfen kendi db bilgilerinizi güncelleyiniz
+### Proje süreci
 
-### /carts/{customerId}/addProduct
+Projeyi **7 ağustos çarşamba** günü aldım. **9 ağustos cuma** günü projeyi eksik bir şekilde teslim ettim. Haftasonu boş kalmamak amacıyla eksiklerimi tamamladım ve **11 ağustos pazar** günü tamamen bitirdim. Proje üzerinde **4 gün** çalıştım.
 
-bir kullanıcının sepetine bir ürün ekler
+### Çalıştırma
 
-### /carts/{customerId}/removeProduct
+`src\main\resources\application.properties` dosyasını kendi yerel bilgisayarınıza göre güncelleyin. Çalıştırmak için `e-commerce` dizinini içerisine girip `mvn install` ve ardından `mvn spring-boot:run` yazın.
 
-bir kullanıcının sepetinden bir ürün çıkarır
+## Customer Service Endpoints
 
-### /carts/{customerId}/empty
+### `addCustomer` [/customers/addCustomer]
 
-bir kullanıcının sepetini boşaltır
+Yeni bir kullanıcıyı Sisteme dahil eder.
 
-### /carts/{customerId}
+### `getCustomer` [/customers/{customerId}/getCustomer]
 
-bir kullanıcını sepetini getirir
+Sistemdeki bir kullanıcıyı id'sine göre getirir.
 
-### /carts(PATCH)
+## Product Service Endpoints
 
-sepetin bir kısmını günceller
+### `createProduct` [/products/createProduct]
 
-### /customers/(POST)
+Bilgileri verilen ürünü sisteme dahil eder.
 
-bir kullanıcı oluşturur
+### `getProduct` [/products/{productId}getProduct]
 
-### /products (POST)
+Bilgileri verilen ürünü sistemden getirir.
 
-bir ürün oluştururu
+### `updateProduct` [/products/{productId}updateProduct]
 
-### /products/{productId}(PUT)
+Ürün bilgilerini güncellemek için kullanılır.
 
-bir ürünü tamamen günceller
+### `deleteProduct` [/products/{productId}deleteProduct]
 
-### /products/{productId}(DELETE)
+Bilgileri verilen ürünü sistemden siler fakat sepette veya siparişte bu ürün varsa silmekte hata alıyorum tasarımsal bir hata bu.
 
-bi ürünü siler
+## Cart Service Endpoints
 
-### /products/{productId}(GET)
+### `getCart` [/carts/{customerId}/getCart]
 
-bir ürünü alır
+Kullanıcı id si verilen kişinin sepeini getirir.
+
+### `updateCart` [/carts/{customerId}/updateCart]
+
+Id'si verilen müşterinin sepetindeki ürünler stok miktarlarına göre kontrol edilir. Normalde stokta yeterli ürün yoksa bu ürün sepete eklenmez. Ancak başka bir müşteri tarafından sipariş verilmiş olabilir ve stok miktarları azalmış olabilir. Eğer stok miktarından fazla ürün varsa fazla ürünler sepetten düşürülür. Total price hesaplanır.
+
+### `addProductToCart` [/carts/{customerId}/addProductToCart]
+
+Verilen ürünü müşterinin sepetine eğer ürün stokta varsa ekler. Total price hesaplanır.
+
+### `removeProductFromCart` [/carts/{customerId}/removeProductFromCart]
+
+Verilen ürünü eğer sepette birden fazla varsa miktarını 1 azaltır. Eğer 1 tane varsa ürünü sepetten siler. Total price hesaplanır.
+
+### `emptyCart` [/carts/{customerId}/emptyCart]
+
+Sepetteki tüm ürünleri kaldırır. Sepet boşalır ve total price hesaplanır.
+
+## Order Service Endpoints
+
+### `placeOrder` [/orders/{customerId}/placeOrder]
+
+Id'si verilen müşterinin sepetindeki ürünleri önce stok miktarlarında göre kontrol eder stoklar yeterliyse sipariş verir. Her ürünün sipariş anındaki fiyatı order item içerisinde tutulur anlık fiyat ise product üzerinde yazar. Bu sayede kullanıcı aldığı tarihteki fiyatı geçmişe yönelik görebilir. Sipariş sonucunda order içerisine bir ordercode oluşturulur bu kod sayesinde kullanıcı siparişine ulaşabilir. Sipariş öncesi stoklar güncellenir.
+
+### `getOrderForCode` [/orders/{orderCode}/getOrder]
+
+Verilen coda göre sipariş getirilir içerisinde ürünlr bulunu ve alış fiyatı gözükür.
+
+### `getAllOrder` [/orders/{customerId}/getAllOrder]
+
+Id'si verilen kişinin tüm siparişlerini getirir.

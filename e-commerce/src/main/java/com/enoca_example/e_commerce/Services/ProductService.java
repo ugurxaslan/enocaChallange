@@ -41,8 +41,8 @@ public class ProductService {
     }
 
 
-    public void deleteProduct(Long productId){
-        productRepository.deleteById(productId);
+    public void deleteProduct(Long productId){//eğerbu ürünü işaret eden bir satır varsa silme işlemi gerçekleşmez
+        if(productRepository.findById(productId).orElse(null)!=null)
+            productRepository.deleteById(productId);
     }
-
 }

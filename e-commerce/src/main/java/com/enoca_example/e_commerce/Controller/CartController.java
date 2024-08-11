@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 
 @RestController
 @RequestMapping("/carts")
@@ -14,25 +16,26 @@ public class  CartController {
     @Autowired
     private CartService cartService;
 
-    @GetMapping("/{customerId}")
+    @GetMapping("/{customerId}/getCart")
     public ResponseEntity<Cart> getCart(@PathVariable Long customerId) {
         Cart cart = cartService.getCart(customerId);
         return ResponseEntity.ok(cart);
     }
 
-    @PatchMapping
-    public ResponseEntity<Cart> updateCart(@RequestBody Cart cart) {
-        Cart updatedCart = cartService.updateCart(cart);
+
+    @PostMapping("/{customerId}/updateCart")
+    public ResponseEntity<Cart> updateCart(@PathVariable Long customerId) {
+        Cart updatedCart = cartService.updateCart(customerId);
         return ResponseEntity.ok(updatedCart);
     }
 
-    @DeleteMapping("/{customerId}/empty")
+    @DeleteMapping("/{customerId}/emptyCart")
     public ResponseEntity<Void> emptyCart(@PathVariable Long customerId) {
         cartService.emptyCart(customerId);
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/{customerId}")
+    @PostMapping("/{customerId}/addProductToCart")
     public ResponseEntity<Cart> addProductToCart(
             @PathVariable Long customerId,
             @RequestBody Long productId) {
@@ -40,7 +43,7 @@ public class  CartController {
         return ResponseEntity.ok(updatedCart);
     }
 
-    @DeleteMapping("/{customerId}/removeProduct")
+    @DeleteMapping("/{customerId}/removeProductFromCart")
     public ResponseEntity<Cart> removeProductFromCart(
             @PathVariable Long customerId,
             @RequestBody Long productId ) {

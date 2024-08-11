@@ -20,13 +20,13 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @PostMapping
+    @PostMapping("/createProduct")
     public ResponseEntity<Product> createProduct(@RequestBody ProductDTO dto) {
         Product createdProduct = productService.createProduct(dto);
         return ResponseEntity.ok(createdProduct);
     }
 
-    @GetMapping("/{productId}")
+    @GetMapping("/{productId}/getProduct")
     public ResponseEntity<Product> getProduct(@PathVariable Long productId) {
         Product product = productService.getProduct(productId);
         if (product != null) {
@@ -36,13 +36,13 @@ public class ProductController {
         }
     }
 
-    @PutMapping("/{productId}")
+    @PutMapping("/{productId}/updateProduct")
     public ResponseEntity<Product> updateProduct(@PathVariable Long productId, @RequestBody ProductDTO product) {
         Product updatedProduct = productService.updateProduct(productId, product);
         return ResponseEntity.ok(updatedProduct);
     }
 
-    @DeleteMapping("/{productId}")
+    @DeleteMapping("/{productId}/deleteProduct")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long productId) {
         productService.deleteProduct(productId);
         return ResponseEntity.noContent().build();
