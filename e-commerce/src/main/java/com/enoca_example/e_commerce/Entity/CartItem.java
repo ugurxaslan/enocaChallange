@@ -1,5 +1,7 @@
 package com.enoca_example.e_commerce.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +12,7 @@ import lombok.Setter;
 public class CartItem extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "cart_id")
+    @JsonBackReference
     private Cart cart;
 
     @ManyToOne

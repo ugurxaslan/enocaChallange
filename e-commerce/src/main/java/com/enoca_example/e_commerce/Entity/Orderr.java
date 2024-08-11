@@ -1,4 +1,5 @@
 package com.enoca_example.e_commerce.Entity;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,6 +10,9 @@ import java.util.Set;
 @Getter
 @Entity
 public class Orderr extends BaseEntity {
+
+    String orderCode;
+
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
@@ -17,11 +21,6 @@ public class Orderr extends BaseEntity {
     private Set<OrderItem> items;
 
     private double totalPrice;
-/*
-    @PrePersist
-    @PreUpdate
-    public void updateTotalPrice() {
-        totalPrice = items.stream().mapToDouble(item -> item.getPurchasePrice() * item.getQuantity()).sum();
-    }*/
+
 }
 
