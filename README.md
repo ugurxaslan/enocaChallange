@@ -1,12 +1,14 @@
 # Enoca Java Challange
 
-Projeyi **7 ağustos çarşamba** günü aldım.  Okulun açılma tarihinin yaklaşması ve staj yapabilme süresinin daralması, staja bir an önce başlayabilme nedeniyle projeyi **9 ağustos cuma** günü eksik bir şekilde teslim ettim. Haftasonu boş kalmamak amacıyla eksiklerimi tamamladım ve **11 ağustos pazar** günü tamamen bitirdim. Proje üzerinde **4 gün** çalıştım.
+Projeyi **7 ağustos çarşamba** günü aldım. Okulun açılma tarihinin yaklaşması ve staj yapabilme süresinin daralması, staja bir an önce başlayabilme nedeniyle projeyi **9 ağustos cuma** günü eksik bir şekilde teslim ettim. Haftasonu boş kalmamak amacıyla eksiklerimi tamamladım ve **11 ağustos pazar** günü tamamen bitirdim. Proje üzerinde **4 gün** çalıştım.
 
 ### Çalıştırma
 
 `src\main\resources\application.properties` dosyasını kendi yerel bilgisayarınıza göre güncelleyin. Çalıştırmak için `e-commerce` dizinini içerisine girip `mvn install` ve ardından `mvn spring-boot:run` yazın.
 
 ## Customer Service Endpoints
+
+![Customer Service Photo](readme.img/2.png)
 
 #### `addCustomer` [/customers/addCustomer]
 
@@ -17,6 +19,8 @@ Yeni bir kullanıcıyı Sisteme dahil eder.
 Sistemdeki bir kullanıcıyı id'sine göre getirir.
 
 ## Product Service Endpoints
+
+![Product Service Photo](readme.img/4.png)
 
 #### `createProduct` [/products/createProduct]
 
@@ -33,6 +37,8 @@ Bilgileri verilen ürünü sistemden getirir.
 Bilgileri verilen ürünü sistemden siler fakat sepette veya siparişte bu ürün varsa silmekte hata alıyorum tasarımsal bir hata bu.
 
 ## Cart Service Endpoints
+
+![Cart Service Photo](readme.img/1.png)
 
 #### `getCart` [/carts/{customerId}/getCart]
 
@@ -55,6 +61,8 @@ Verilen ürünü eğer sepette birden fazla varsa miktarını 1 azaltır. Eğer 
 Sepetteki tüm ürünleri kaldırır. Sepet boşalır ve total price hesaplanır.
 
 ## Order Service Endpoints
+
+![Order Service Photo](readme.img/3.png)
 
 #### `placeOrder` [/orders/{customerId}/placeOrder]
 
