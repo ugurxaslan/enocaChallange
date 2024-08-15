@@ -6,6 +6,8 @@ Projeyi **7 ağustos çarşamba** günü aldım. Okulun açılma tarihinin yakla
 
 `src\main\resources\application.properties` dosyasını kendi yerel bilgisayarınıza göre güncelleyin. Çalıştırmak için `e-commerce` dizinini içerisine girip `mvn install` ve ardından `mvn spring-boot:run` yazın.
 
+## POSTMAN
+https://www.postman.com/science-administrator-19559804/workspace/enoca-api-test
 ## Customer Service Endpoints
 
 ![Customer Service Photo](readme.img/2.png)
